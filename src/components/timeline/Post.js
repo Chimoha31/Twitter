@@ -3,30 +3,29 @@ import "./Post.css";
 import { ChatBubbleOutline, FavoriteBorder, PublishOutlined, Repeat, VerifiedUser } from '@mui/icons-material';
 import { Avatar } from '@mui/material';
 
-function Post() {
+function Post({displayName, userName, varified, text, avatar, image}) {
   return (
     <div className="post">
       <div className="post__avatar">
-        <Avatar />
+        <Avatar src={avatar} />
       </div>
 
       <div className="post__body">
         <div className="post__header">
           <div className="post__headerText">
-            <h3>Chiho Maekawa
+            <h3>{displayName}
             <span className="post__headerSpecial">
               <VerifiedUser className="post--badge" />
-              @Chiho_Teddyyys
+              @{userName}
             </span>
             </h3>
           </div>
           <div className="post__headerDescription">
-            <p>React なう</p>
+            <p>{text}</p>
           </div>
         </div>
 
-        <img src="https://source.unsplash.com/random" alt="" />
-
+        <img src={image} alt="" />
         <div className="post__footer">
           <ChatBubbleOutline fontSize="small" />
           <Repeat fontSize="small" />

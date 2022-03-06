@@ -13,14 +13,11 @@ function Timeline() {
       {/* TweetBox */}
       <TweetBox />
       {/* Post */}
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
+      <Post displayName='Studying of Chiho' userName="chiho_Teddy"
+      varified={true}
+      text="This is my first Tweet"
+      avatar="http://shincode.info/wp-content/uploads/2021/12/icon.png"
+      image="https://source.unsplash.com/random" />
     </div>
   )
 }

@@ -3,7 +3,7 @@ import "./Post.css";
 import { ChatBubbleOutline, FavoriteBorder, PublishOutlined, Repeat, VerifiedUser } from '@mui/icons-material';
 import { Avatar } from '@mui/material';
 
-function Post({displayName, userName, varified, text, avatar, image}) {
+function Post({displayName, userName, verified, text, avatar, image}) {
   return (
     <div className="post">
       <div className="post__avatar">

@@ -3,7 +3,13 @@ import TweetBox from "./TweetBox";
 import "./Timeline.css";
 import Post from "./Post";
 import db from "../../firebase";
-import { collection, getDocs, onSnapshot, orderBy, query } from "firebase/firestore";
+import {
+  collection,
+  getDocs,
+  onSnapshot,
+  orderBy,
+  query,
+} from "firebase/firestore";
 import FlipMove from "react-flip-move";
 
 function Timeline() {
@@ -30,17 +36,19 @@ function Timeline() {
       {/* TweetBox */}
       <TweetBox />
       {/* Post */}
-      {posts.map((post, index) => (
-        <Post
-          key={index}
-          displayName={post.displayName}
-          userName={post.userName}
-          verified={post.verified}
-          text={post.text}
-          avatar={post.avatar}
-          image={post.image}
-        />
-      ))}
+      <FlipMove>
+        {posts.map((post) => (
+          <Post
+            key={post.text}
+            displayName={post.displayName}
+            userName={post.userName}
+            verified={post.verified}
+            text={post.text}
+            avatar={post.avatar}
+            image={post.image}
+          />
+        ))}
+      </FlipMove>
     </div>
   );
 }

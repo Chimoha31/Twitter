@@ -23,3 +23,7 @@
   height: 50px !important;
   margin-top: 20px !important;
 }
+
+.sidebarOption--active {
+  color: var(--twitter-color);
+}

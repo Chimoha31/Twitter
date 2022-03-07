@@ -4,6 +4,7 @@ import "./Timeline.css";
 import Post from "./Post";
 import db from "../../firebase";
 import { collection, getDocs, onSnapshot, orderBy, query } from "firebase/firestore";
+import FlipMove from "react-flip-move";
 
 function Timeline() {
   const [posts, setPosts] = useState([]);

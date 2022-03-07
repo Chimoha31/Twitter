@@ -3,16 +3,21 @@ import TweetBox from "./TweetBox";
 import "./Timeline.css";
 import Post from "./Post";
 import db from "../../firebase";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, onSnapshot, orderBy, query } from "firebase/firestore";
 
 function Timeline() {
   const [posts, setPosts] = useState([]);
+
   useEffect(() => {
     const postData = collection(db, "posts");
-    getDocs(postData).then((snapShot) => {
-      setPosts(snapShot.docs.map((doc) => doc.data()));
+    const q = query(postData, orderBy("timestamp", "desc"));
+    // getDocs(q).then((snapShot) => {
+    //   setPosts(snapShot.docs.map((doc) => doc.data()));
+    // });
+    // リフレッシュしなくてもリアルタイムでデーターを更新するようにする
+    onSnapshot(q, (querySnapShot) => {
+      setPosts(querySnapShot.docs.map((doc) => doc.data()));
     });
-    console.log('mount');
   }, []);
 
   return (
@@ -28,9 +33,9 @@ function Timeline() {
         <Post
           key={index}
           displayName={post.displayName}
-          userName={post.username}
+          userName={post.userName}
           verified={post.verified}
-          text={post.test}
+          text={post.text}
           avatar={post.avatar}
           image={post.image}
         />
